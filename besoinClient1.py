@@ -4,6 +4,7 @@
 import argparse
 import joblib
 import numpy as np
+import pandas as pd
 
 def main():
     parser = argparse.ArgumentParser(description='Prends en entrée des caractéristiques d\'un arbre et renvoie le cluster de taille d\'arbre associé')
@@ -24,11 +25,9 @@ def main():
 
     kmeans_loaded = joblib.load(filename)
 
-    new_data = np.array([[float(args.haut_tot),float(args.diam_tronc)]])
+    new_data = pd.DataFrame(np.array([[float(args.haut_tot),float(args.diam_tronc)]]), columns=['haut_tot', 'tronc_diam'])
 
     predicted_cluster = kmeans_loaded.predict(new_data)
-
-    print(predicted_cluster)
 
     print(f"Le modèle KMeans prédit que cet arbre est dans le cluster numéro {predicted_cluster[0]}")
 
