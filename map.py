@@ -1,6 +1,4 @@
 import geopandas as gpd
-import folium
-from branca.colormap import LinearColormap
 import plotly.express as px
 
 def createDiscreteMap(dataframe, columnName, values = [], colors = []):
