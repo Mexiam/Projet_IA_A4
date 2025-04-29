@@ -17,14 +17,14 @@ def main():
 
     args = parser.parse_args()
 
-    filename = "decisiontree_regressor.pkl"
+    filename = "best_model.pkl"
 
-    decision_tree_loaded = joblib.load(filename)
+    best_model = joblib.load(filename)
 
     new_data = pd.DataFrame(np.array([[float(args.haut_tot),float(args.haut_tronc),float(args.diam_tronc)]]),
                              columns=["haut_tot", "haut_tronc", "tronc_diam"])
 
-    predicted_age = decision_tree_loaded.predict(new_data)
+    predicted_age = best_model.predict(new_data)
 
     print(f"Le modèle Decision Tree prédit que cet arbre a un age de {predicted_age[0]}")
 

@@ -11,7 +11,7 @@ def createDiscreteMap(dataframe, columnName, values = [], colors = []):
                          lat=wgs84.geometry.y,
                          lon=wgs84.geometry.x,
                          color=columnName,
-                         color_discrete_map={val: colors[i] for i, val in enumerate(values)},
+                         color_discrete_map={str(val): colors[i] for i, val in enumerate(values)},
                          size_max=15,
                          zoom=10)
     fig.show() 
